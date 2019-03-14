@@ -1,0 +1,40 @@
+Move all zeroes to end:
+
+public class HelloWorld{
+
+     public static void main(String []args){
+         
+        Integer[] array={1,2,3,0,5,0,4,0,9};
+        moveZeros(array);
+        showArray(array);
+     }
+     //move zeros at end
+     public static void moveZeros(Integer[] arr)
+     {
+         int left=0;
+         int right=arr.length-1;
+         while(left<=right)
+         {
+             if(arr[left]!=0){
+                 left++;
+             }
+             else if(arr[right]==0){
+                 right--;
+             }
+             else{
+                 arr[left]=arr[left]+arr[right];
+                 arr[right]=arr[left]-arr[right];
+                 arr[left]=arr[left]-arr[right];
+                 left++;
+                 right--;
+             }
+         }
+     }
+     public static void showArray(Integer[] arr)
+     {
+        for(int i : arr)
+        {
+            System.out.print(i+" ");
+        }
+     }
+}
